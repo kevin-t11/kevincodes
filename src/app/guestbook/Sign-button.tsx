@@ -63,6 +63,7 @@ export default function SignButton() {
     const handleEmailValidation = async () => {
         startTransition(async () => {
             const result = await validateEmail(email);
+            console.log(result);
             setIsValid(result);
             if (!result) {
                 toast.error("Please add a valid email!");
@@ -78,6 +79,7 @@ export default function SignButton() {
     // sending the data to the backend
     const handleSubmit = async () => {
         try {
+            console.log("submitting signature");
             setIsLoading(true); // Set loading state to true
             // Show a loading toast while the signature is being submitted
             const signatureInfo = {
@@ -103,7 +105,12 @@ export default function SignButton() {
             toast.error('Failed to submit the signature. Please try again.');
         }
     };
-
+    console.log(isValid);
+    console.log(message);
+    console.log(email);
+    console.log(name);
+    console.log(signature);
+    console.log(isLoading);
 
     return (
         <MotionConfig transition={TRANSITION}>
@@ -176,7 +183,7 @@ export default function SignButton() {
                                     <Button
                                         className='w-full'
                                         type='button'
-                                        disabled={isLoading || !signature || !isValid || !message || !name}
+                                        disabled={isLoading || !signature || !isValid || !name}
                                         onClick={() => {
                                             handleSubmit()
                                         }}
