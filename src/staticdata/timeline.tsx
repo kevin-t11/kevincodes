@@ -6,40 +6,43 @@ type TimelineItem = {
 
 export const timelineItems: TimelineItem[] = [
   {
-    date: "January 2024 - Present",
-    title: "Developer Freelancer",
+    date: "January 2025 - Present",
+    title: "SDE Intern - Strique AI",
+    description: ["Contributing to the development of AI-driven solutions and enhancing web applications for various clients."]
+  },
+  {
+    date: "September 2024 - Present",
+    title: "Freelancer",
     description: ["Built websites for clients with best practices."],
   },
   {
-    date: "August 2023 - Present",
-    title: "Web Dev Instructor - SkyIL Computer Institute",
+    date: "November 2024 - December 2025",
+    title: "Full Stack Developer Intern - Alois Solutions",
     description: [
-      "Assisted the lead instructor in delivering web and computer education to students.",
-      "Assisted in building the student management system in PHP.",
-      "Took part in an MSME certified instructing programme to deliver computer education to students.",
+      "Worked in a cloud and Node.js environment, implementing backend services using AWS EventBridge and Lambda.",
+      "Developed and integrated client APIs to interact with AWS services for seamless event-driven architecture.",
     ],
   },
   {
-    date: "August 2019 - October 2022",
-    title: "B Sc. in Geology, Gurucharan College, Silchar",
+    date: "August 2021 - May 2025",
+    title: "B.Tech in Computer Engineering, Dharamsinh Desai University, Nadiad",
     description: [
-      "This is where I learned about programming through a paper in Statistics",
-      "Graduated with a degree in Geology.",
-    ],
+      "Developed a strong foundation in programming, algorithms, and software development."
+    ]
   },
   {
-    date: "July 2017 - March 2019",
-    title: "Higher Secondary Education, Gurucharan College, Silchar",
+    date: "July 2018 - March 2021",
+    title: "Secondary and Higher Secondary Education, Sorath International School, Junagadh",
     description: [],
   },
   {
-    date: "January 2006 - February 2017",
+    date: "July 2009 - June 2018",
     title:
-      "Primary and Senior Secondary Education, Oxford Senior Secondary School, Silchar",
+      "Primary Education, Alpha Primary School, Balagam",
     description: [],
   },
   {
-    date: "8th August 2000",
+    date: "28th June 2003",
     title:
       "Birthdate",
     description: [],

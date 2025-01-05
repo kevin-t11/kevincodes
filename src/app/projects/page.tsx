@@ -27,7 +27,7 @@ const Projects = () => {
       >
         <h1 className="font-bold text-2xl">My Projects</h1>
         <a
-          href="https://github.com/nilaachandra?tab=repositories"
+          href="https://github.com/kevin-t11?tab=repositories"
           target="_blank"
           className="underline text-blue-600"
         >
