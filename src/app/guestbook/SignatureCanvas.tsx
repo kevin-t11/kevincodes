@@ -1,7 +1,6 @@
 "use client"
 import React, { useRef, useState, useEffect } from 'react';
 import { toast } from 'sonner';
-import { Button } from '../../components/ui/button';
 
 type Point = [number, number];
 type Path = Point[];

@@ -58,10 +58,6 @@ export const fetchPages = async () => {
       },
     });
 
-    console.log('Fetched pages:', response.results); // Log fetched pages
-
-
-
     return response.results as any;
   } catch (error) {
     console.error('Error fetching pages:', error);

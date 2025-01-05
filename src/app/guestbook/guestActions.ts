@@ -11,11 +11,10 @@ interface Signtypes {
 
 export async function validateEmail(email: string): Promise<boolean> {
   // Step 1: Check if the email already exists in the database
-  console.log(email);
+  (email);
   const existingEmail = await db.guestbookEntry.findFirst({
     where: { email: email },
   });
-  console.log(existingEmail);
 
   if (existingEmail) {
     return true;
