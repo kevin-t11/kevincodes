@@ -10,7 +10,7 @@ const Footer = () => {
         {" "}
         <DateTime formatString="MMMM d, yyyy HH:mm:ss" />
       </div>
-      <p>&copy;2025 Kevincodes || All Rights Reserved</p>
+      <p>&copy;2025 Kevincodes 💙|| All Rights Reserved</p>
     </footer>
   )
 }
