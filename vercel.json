@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/next"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "@database_url",
+      "DIRECT_URL": "@direct_url",
+      "NEXT_PUBLIC_URL": "https://kevincodes.vercel.app"
+    },
+    "post-deploy": [
+      {
+        "src": "npx prisma migrate deploy",
+        "dest": "/",
+        "hooks": {
+          "after": "npm install"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/api/$1"
+      }
+    ]
+  }
+  
