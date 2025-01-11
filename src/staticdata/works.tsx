@@ -9,13 +9,11 @@ type Job = {
 export const jobs: Job[] = [
   {
     id: 1,
-    title: "Full Stack Developer Intern",
-    company: "Alois Solutions",
-    period: "December 2024 - Janduary 2025",
+    title: "Software Engineer Intern",
+    company: "Strique AI",
+    period: "Janduary 2025 - Present",
     description: [
-      "Worked in a cloud and Node.js environment, implementing backend services using AWS EventBridge and Lambda.",
-      "Developed and integrated client APIs to interact with AWS services for seamless event-driven architecture.",
-    ],
+     "Contributing to the development of AI-driven solutions and enhancing web applications for various clients."],
   },
   {
     id: 2,

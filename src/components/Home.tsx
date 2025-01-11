@@ -9,9 +9,9 @@ import {
   childVariants,
   containerVariants,
 } from "@/components/MotionDiv";
-import MyWritings from "./MyWritings";
 import MyLocation from "./MyLocation";
 import Experience from "./Experience";
+import MyWritings from "./MyWritings";
 
 const Homepage = () => {
   return (
@@ -33,7 +33,7 @@ const Homepage = () => {
           <div className="desc md:w-full   lg:w-full col-span-2">
             <div className="flex items-center gap-0.5">
               <h1 className="font-bold text-3xl">
-                <span className="text-blue-700">Kevin</span> Thumbar🎃
+                <span className="text-blue-700">Kevin</span> Thumbar {" "}🎃
               </h1>
             </div>
             <ul className="list-inside">

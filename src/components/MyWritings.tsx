@@ -1,5 +1,3 @@
-import { Link } from "next-view-transitions";
-
 const MyWritings = () => {
   return (
     <div className="w-full">
@@ -7,12 +5,11 @@ const MyWritings = () => {
       <p className="leading-5">
         Apologies, my dear lads, I haven&apos;t graced any great writings yet,
         though I do bless{" "}
-        <a href="https://x.com/nilaacodes" className="text-blue-700 underline">
+        <a href="https://x.com/kevinnn_tw" className="text-blue-700 underline">
           Twitter
         </a>{" "}
         with my daily (and highly intellectual) shitposts at best.
       </p>
-      <Link href={'https://x.com/kevinnn_tw'} target="_blank" className="text-blue-700 underline">Here are some tho</Link>
     </div>
   );
 };

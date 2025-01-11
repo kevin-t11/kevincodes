@@ -28,21 +28,6 @@ const nextConfig = {
       }
     ],
   },
-  async headers() {
-    return [
-      {
-        // Target specific routes with custom cache control
-        source: '/writings', // Adjust to match your specific page or route
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-store', // Disables caching
-          },
-        ],
-      },
-      // You can add more custom headers for other routes if needed
-    ];
-  },
 };
 
 export default nextConfig;

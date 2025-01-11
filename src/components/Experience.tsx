@@ -10,7 +10,7 @@ export default function Experience() {
             <li key={job.id} className="">
               <h3 className="font-semibold">{job.title}</h3>
               <p className="mb-2 font-semibold">
-                {job.company} | {job.period}
+                {job.company} <span className="text-blue-400"> | </span> {job.period}
               </p>
               <ul className="list-disc list-inside space-y-1 ">
                 {job.description.map((point, index) => (

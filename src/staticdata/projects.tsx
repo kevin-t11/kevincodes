@@ -28,7 +28,7 @@ const projects: Project[] = [
       "Jolt Connect integrates Google services (Drive, Gmail, Sheets) for seamless automation of repetitive tasks and includes GitHub comment integration to automate workflows based on GitHub activity.",
     githubURL: "https://github.com/kevin-t11/jolt-connect",
     skills: ["Next JS", "TypeScript", "Tailwind", "ShadCn", "Nextauth", "Node JS", "PostgreSQL", "Prisma", "Apacke Kafka", "Docker", "Turborepo", "Webhooks"],
-    status: "running",
+    status: "building",
   },
   {
     id: 3,
@@ -41,7 +41,27 @@ const projects: Project[] = [
     linkURL: "https://securepurse.vercel.app/",
     status: "running",
   },
-  
+  {
+    id: 4,
+    image: "/netflix_gpt.webp",
+    title: "Netflix GPT",
+    description:"NETFLIX-GPT is an AI-driven app that enhances the Netflix experience using Groq AI to deliver personalized content recommendations.",
+    githubURL: "https://github.com/kevin-t11/netflix-gpt",
+    skills: ["React Js", "JavaScript", "Tailwind", "Redux", "Groq AI", "GPT-3"],
+    linkURL: "https://neuralflix.vercel.app/",
+    status: "running",
+  },
+  {
+    id: 5,
+    image: "/uphire.png",
+    title: "VMS UpHire",
+    description:
+      "VMS UpHire is a web application for managing the recruitment process, allowing users to create job postings, manage applicants, and schedule interviews.",
+    githubURL: "https://github.com/kevin-t11/Recruiting-Management",
+    skills: ["React Js", "JavaScript", "Tailwind", "Redux", "Node JS", "Express", "MongoDB"],
+    linkURL: "https://uphire.in/",
+    status: "running",
+  },
 ];
 
 export default projects;

@@ -12,7 +12,6 @@ const navLinks = [
   { linkName: "Home", href: "/" },
   { linkName: "About", href: "/about" },
   { linkName: "Works", href: "/projects" },
-  { linkName: "Writings", href: "/writings" },
   { linkName: "Timeline", href: "/timeline" },
   { linkName: "Guestbook", href: "/guestbook" },
   { linkName: "Shelf", href: "/shelf" },
