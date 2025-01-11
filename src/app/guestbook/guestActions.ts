@@ -1,5 +1,5 @@
 "use server";
-import { db } from "@/lib/db";
+import client from "@/lib/db";
 import axios from "axios";
 
 interface Signtypes {
@@ -12,7 +12,7 @@ interface Signtypes {
 export async function validateEmail(email: string): Promise<boolean> {
   // Step 1: Check if the email already exists in the database
   (email);
-  const existingEmail = await db.guestbookEntry.findFirst({
+  const existingEmail = await client.guestbookEntry.findFirst({
     where: { email: email },
   });
 
@@ -44,7 +44,7 @@ export async function validateEmail(email: string): Promise<boolean> {
 export const submitSignature = async (formData: Signtypes) => {
   //
   try {
-    const response = await db.guestbookEntry.create({
+    const response = await client.guestbookEntry.create({
       data: {
         name: formData.name,
         email: formData.email,
@@ -62,7 +62,7 @@ export const submitSignature = async (formData: Signtypes) => {
 //fetch post
 export async function fetchPosts() {
   try {
-    const posts = await db.guestbookEntry.findMany({
+    const posts = await client.guestbookEntry.findMany({
       orderBy: {
         createdAt: "desc",
       },
