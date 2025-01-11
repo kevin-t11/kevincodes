@@ -8,18 +8,16 @@
     ],
     "env": {
       "DATABASE_URL": "@database_url",
-      "DIRECT_URL": "@direct_url",
       "NEXT_PUBLIC_URL": "https://kevincodes.vercel.app"
     },
-    "post-deploy": [
-      {
-        "src": "npx prisma migrate deploy",
-        "dest": "/",
-        "hooks": {
-          "after": "npm install"
-        }
-      }
-    ],
+    "build": {
+      "env": {
+        "DATABASE_URL": "@database_url"
+      },
+      "commands": [
+        "npx prisma generate"
+      ]
+    },
     "routes": [
       {
         "src": "/api/(.*)",
