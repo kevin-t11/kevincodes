@@ -59,7 +59,7 @@ const projects: Project[] = [
       "VMS UpHire is a web application for managing the recruitment process, allowing users to create job postings, manage applicants, and schedule interviews.",
     githubURL: "https://github.com/kevin-t11/Recruiting-Management",
     skills: ["React Js", "JavaScript", "Tailwind", "Redux", "Node JS", "Express", "MongoDB"],
-    linkURL: "https://uphire.in/",
+    linkURL: "https://app.uphire.in/",
     status: "running",
   },
 ];
