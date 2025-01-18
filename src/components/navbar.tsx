@@ -29,21 +29,23 @@ const Navbar = () => {
     <>
       <header className="w-full rounded-md py-2">
         <div className="flex justify-between items-center">
-          <div className="h-10 w-10 p-0.5 border-2 justify-center bg-black dark:bg-white flex items-center dark:border-white border-black rounded-md">
+          <div className="h-10 w-10 justify-center rounded-lg bg-black dark:bg-white flex items-center">
             {mounted &&
               (theme === "dark" ? (
                 <Image
-                  src="/nilaacodes-dark.png"
+                  className="rounded-lg"
+                  src="/kevincodes-dark.png"
                   width={40}
                   height={40}
-                  alt="Nilaacodes"
+                  alt="Kevincodes"
                 />
               ) : (
                 <Image
-                  src="/nilaacodes-light.png"
+                  className="rounded-lg"
+                  src="/kevincodes-light.png"
                   width={48}
                   height={48}
-                  alt="Nilaacodes"
+                  alt="Kevincodes"
                 />
               ))}
           </div>
@@ -56,7 +58,7 @@ const Navbar = () => {
             >
               Hire Me
             </a>
-            <Emoji/>
+            <Emoji />
             <ThemeToggle />
           </div>
         </div>

@@ -33,7 +33,7 @@ const About = () => {
           className=""
         >
           <video className="w-full mt-3 rounded-lg" muted autoPlay loop>
-            <source src="/nilaacodesvid.mp4" type="video/mp4" />
+            <source src="/kevincodesvid.mp4" type="video/mp4" />
           </video>
         </MotionHeader>
         <p className="tracking-normal leading-5 mt-3">
