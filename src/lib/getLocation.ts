@@ -8,6 +8,9 @@ export interface Location {
 }
 
 export async function getLocation(ip: string): Promise<Location> {
-  const response = await axios.get<Location>(`https://ipinfo.io/${ip}/json?token=e845c03e3583aa`);
+  const accessKey = process.env.NEXT_PUBLIC_IPINFO_KEY;
+  const url = 'https://apiip.net/api/check?ip='+ ip +'&accessKey='+ accessKey; 
+  const response = await axios.get<Location>(url);
+  console.log(response);
   return response.data;
 }

@@ -23,11 +23,14 @@ const LocationDistance: React.FC = () => {
         // Fetch the user's location based on the IP address
         const userLocation = await getLocation(userIp);
 
-        // Extract user coordinates from location data
-        const [userLat, userLon] = userLocation.loc.split(',').map(Number);
+        //@ts-ignore
+        const latitude = userLocation.latitude;
+        //@ts-ignore
+        const longitude = userLocation.longitude;
 
         // Calculate the distance between the user's location and the server's fixed coordinates
-        const distance = calculateDistance(userLat, userLon, SERVER_LAT, SERVER_LON);
+        const distance = calculateDistance(latitude, longitude, SERVER_LAT, SERVER_LON);
+        console.log("distance" + distance);
 
         // Update the distance state
         setDistance(distance);
