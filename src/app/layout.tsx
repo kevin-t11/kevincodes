@@ -17,22 +17,18 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Kevincodes",
-  description: "my corner of the internet",
-  icons: {
-    icon: ["kevincodes-dark.png"],
-    shortcut: ["kevincodes-dark.png"],
-  },
+  title: "About Kevincodes",
+  description: "Learn more about Kevincodes",
   openGraph: {
-    title: "Kevincodes",
-    description: "my corner of the internet",
-    url: "kevincodes.vercel.app",
+    title: "About Kevincodes",
+    description: "Learn more about Kevincodes",
+    url: "https://kevincodes.vercel.app/about",
     siteName: "Kevincodes",
-    images: [{ url: "/profile_2.png", width: 1200, height: 630 }],
-    locale: "en-IN",
-    type: "website",
+    images: [{ url: "/about_image.png", width: 1200, height: 630 }],
+    type: "article",
   },
 };
+
 const PostHogPageView = dynamic(() => import("@/app/PostHogPageView"), {
   ssr: false,
 });
