@@ -17,14 +17,14 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "About Kevincodes",
+  title: "Kevincodes",
   description: "Learn more about Kevincodes",
   openGraph: {
     title: "About Kevincodes",
     description: "Learn more about Kevincodes",
-    url: "https://kevincodes.vercel.app/about",
+    url: "https://kevincodes.vercel.app",
     siteName: "Kevincodes",
-    images: [{ url: "/about_image.png", width: 1200, height: 630 }],
+    images: [{ url: "/profile_2.png", width: 1200, height: 630 }],
     type: "article",
   },
 };
