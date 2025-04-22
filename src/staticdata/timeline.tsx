@@ -7,7 +7,7 @@ type TimelineItem = {
 export const timelineItems: TimelineItem[] = [
   {
     date: "January 2025 - Present",
-    title: "SDE Intern - Strique AI",
+    title: "Software Engineer - Strique AI",
     description: ["Contributing to the development of AI-driven solutions and enhancing web applications for various clients."]
   },
   {

@@ -9,11 +9,11 @@ type Job = {
 export const jobs: Job[] = [
   {
     id: 1,
-    title: "Software Engineer Intern",
+    title: "Software Engineer",
     company: "Strique AI",
     period: "Janduary 2025 - Present",
     description: [
-     "Contributing to the development of AI-driven solutions and enhancing web applications for various clients."],
+      "Contributing to the development of AI-driven solutions and enhancing web applications for various clients."],
   },
   {
     id: 2,
