@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Oxanium } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./provider";
 import Navbar from "@/components/navbar";
@@ -11,9 +11,10 @@ import ProgressProvider from "./ProgressProvider";
 import { Toaster } from "sonner";
 import QueryProvider from "./QueryProvider";
 
-const manrope = Manrope({
+const oxanium = Oxanium({
   subsets: ["latin"],
-  weight: ["500", "800"],
+  variable: "--font-oxanium ",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className={manrope.className} suppressHydrationWarning>
+      <html lang="en" className={oxanium.className} suppressHydrationWarning>
         <PHProvider>
           <body className="max-w-[712px] mx-auto scroll-smooth w-full px-4 min-h-screen">
             <QueryProvider>

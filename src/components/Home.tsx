@@ -23,7 +23,7 @@ const Homepage = () => {
         >
           <div className="profile justify-center flex items-center">
             <Image
-              src="https://pbs.twimg.com/profile_images/1822673085717221377/4NVrn3ky_400x400.jpg"
+              src="/profile_pic.jpg"
               height={120}
               width={120}
               className="rounded-full"

@@ -30,7 +30,6 @@ const LocationDistance: React.FC = () => {
 
         // Calculate the distance between the user's location and the server's fixed coordinates
         const distance = calculateDistance(latitude, longitude, SERVER_LAT, SERVER_LON);
-        console.log("distance" + distance);
 
         // Update the distance state
         setDistance(distance);

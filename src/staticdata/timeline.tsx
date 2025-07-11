@@ -42,9 +42,8 @@ export const timelineItems: TimelineItem[] = [
     description: [],
   },
   {
-    date: "28th June 2003",
-    title:
-      "Birthdate",
+    date: "2003",
+    title: "Birth",
     description: [],
   },
 ];

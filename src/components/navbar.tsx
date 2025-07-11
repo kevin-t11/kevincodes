@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Link } from "next-view-transitions";
 import ThemeToggle from "./ThemeToggle";
 import AnimatedBackground from "./core/animate-background";
-import Emoji from "./Emoji";
 
 const navLinks = [
   { linkName: "Home", href: "/" },
@@ -58,7 +57,6 @@ const Navbar = () => {
             >
               Hire Me
             </a>
-            <Emoji />
             <ThemeToggle />
           </div>
         </div>
