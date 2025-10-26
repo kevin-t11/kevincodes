@@ -18,14 +18,15 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-  title: "Kevincodes",
-  description: "Learn more about Kevincodes",
+  metadataBase: new URL("https://kevincodes.vercel.app"),
+  title: "Kevin's Portfolio",
+  description: "Explore more about Kevin's portfolio",
   openGraph: {
-    title: "About Kevincodes",
-    description: "Learn more about Kevincodes",
+    title: "Kevin's Portfolio",
+    description: "Explore more about Kevin's portfolio",
     url: "https://kevincodes.vercel.app",
-    siteName: "Kevincodes",
-    images: [{ url: "/profile_2.png", width: 1200, height: 630 }],
+    siteName: "Kevin's Portfolio",
+    images: [{ url: "/profile_5.png", width: 1200, height: 630 }],
     type: "article",
   },
 };

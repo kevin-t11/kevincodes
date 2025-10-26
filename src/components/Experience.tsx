@@ -8,7 +8,8 @@ export default function Experience() {
         <ul className="space-y-3">
           {jobs.map((job) => (
             <li key={job.id} className="">
-              <h3 className="font-semibold">{job.title}</h3>
+              <h3 className="font-semibold">{job.title} <span className="text-blue-400"> | </span><span className="text-sm text-muted-foreground italic">
+              {job.location}</span></h3>
               <p className="mb-2 font-semibold">
                 {job.company} <span className="text-blue-400"> | </span> {job.period}
               </p>

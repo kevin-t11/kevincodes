@@ -23,11 +23,11 @@ const Homepage = () => {
         >
           <div className="profile justify-center flex items-center">
             <Image
-              src="/profile_pic.jpg"
+              src="/profile_5.png"
               height={120}
               width={120}
-              className="rounded-full"
-              alt=""
+              className="rounded-full object-cover"
+              alt="Kevin Thumbar profile picture"
             />
           </div>
           <div className="desc md:w-full   lg:w-full col-span-2">

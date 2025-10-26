@@ -6,18 +6,26 @@ type TimelineItem = {
 
 export const timelineItems: TimelineItem[] = [
   {
-    date: "January 2025 - Present",
-    title: "Software Engineer - Strique AI",
+    date: "May 2025 - Present",
+    title: "Founding Engineer - Spero Institute (Texas, USA (Remote))",
+    description: [
+      "Built the entire Spero Institute platform from the ground up — a full-stack mental health care system with scheduling, video conferencing, assessments (PHQ-9, GAD-7, PCL-5), clinical documentation, and real-time chat.",
+      "Owned end-to-end development and architecture using Next.js, TypeScript, Prisma, PostgreSQL, and AWS (Lambda, S3, EC2, RDS) to deliver a scalable, seamless clinician-patient experience."
+    ]
+  },
+  {
+    date: "January 2025 - May 2025",
+    title: "Software Engineer - Strique AI (Mumbai, India)",
     description: ["Contributing to the development of AI-driven solutions and enhancing web applications for various clients."]
   },
   {
     date: "September 2024 - Present",
-    title: "Freelancer",
+    title: "Freelancer (Remote)",
     description: ["Built websites for clients with best practices."],
   },
   {
     date: "November 2024 - December 2025",
-    title: "Full Stack Developer Intern - Alois Solutions",
+    title: "Full Stack Developer Intern - Alois Solutions (Vadodara, India)",
     description: [
       "Worked in a cloud and Node.js environment, implementing backend services using AWS EventBridge and Lambda.",
       "Developed and integrated client APIs to interact with AWS services for seamless event-driven architecture.",
