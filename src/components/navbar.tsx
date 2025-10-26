@@ -33,7 +33,7 @@ const Navbar = () => {
               (theme === "dark" ? (
                 <Image
                   className="rounded-lg"
-                  src="/profile_5.png"
+                  src="/profile_pic.png"
                   width={40}
                   height={40}
                   alt="Kevin Thumbar profile picture"
@@ -41,7 +41,7 @@ const Navbar = () => {
               ) : (
                 <Image
                   className="rounded-lg"
-                  src="/profile_5.png"
+                  src="/profile_pic.png"
                   width={48}
                   height={48}
                   alt="Kevin Thumbar profile picture"

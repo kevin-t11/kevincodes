@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Explore more about Kevin's portfolio",
     url: "https://kevincodes.vercel.app",
     siteName: "Kevin's Portfolio",
-    images: [{ url: "/profile_5.png", width: 1200, height: 630 }],
+    images: [{ url: "/profile_pic.png", width: 1200, height: 630 }],
     type: "article",
   },
 };

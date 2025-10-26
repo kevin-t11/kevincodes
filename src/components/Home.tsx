@@ -23,7 +23,7 @@ const Homepage = () => {
         >
           <div className="profile justify-center flex items-center">
             <Image
-              src="/profile_5.png"
+              src="/profile_pic.png"
               height={120}
               width={120}
               className="rounded-full object-cover"
