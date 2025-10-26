@@ -22,6 +22,7 @@ import {
   SiRedis,
   SiRedux,
   SiApachekafka,
+  SiBun,
 } from "react-icons/si";
 
 type Skill = {
@@ -52,6 +53,8 @@ const skills: Skill[] = [
   { skillName: "AWS", skillIcon: <SiAmazonwebservices size={14} /> },
   { skillName: "Docker", skillIcon: <SiDocker size={14} /> },
   { skillName: "Turborepo", skillIcon: <SiTurborepo size={14} /> },
+  { skillName: "Vercel AI SDK", skillIcon: <SiVercel size={14} /> },
+  { skillName: "Bun", skillIcon: <SiBun size={14} /> },
 ];
 
 export default skills;
