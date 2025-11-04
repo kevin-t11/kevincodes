@@ -69,7 +69,7 @@ const Status: React.FC<StatusProps> = ({ status }) => {
   };
 
   return (
-    <div className="flex items-center gap-1 justify-center bg-zinc-300 dark:bg-zinc-700 px-1 rounded-sm">
+    <div className="flex items-center gap-1 justify-center bg-neutral-300 dark:bg-neutral-700 px-1 rounded-sm">
       <motion.div
         className={cn(
           'w-2 h-2 rounded-full',

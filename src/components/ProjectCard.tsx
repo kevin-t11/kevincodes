@@ -25,7 +25,7 @@ const ProjectCard: React.FC<CardProps> = ({
   skills,
 }) => {
   return (
-    <div className="bg-zinc-200/50 dark:bg-zinc-900 cursor-pointer p-2 rounded-md">
+    <div className="bg-neutral-200/50 dark:bg-neutral-900 cursor-pointer p-2 rounded-md">
       <div className="flex flex-col">
         <div className="flex items-center h-full gap-3">
           <Image
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<CardProps> = ({
           {skills.map((skill, index) => (
             <span
               key={index}
-              className="dark:bg-zinc-700 bg-zinc-300 rounded-sm px-1 py-0.5"
+              className="dark:bg-neutral-700 bg-neutral-300 rounded-sm px-1 py-0.5"
             >
               {skill}
             </span>

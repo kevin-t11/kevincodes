@@ -77,7 +77,7 @@ export default function SignButton() {
       <motion.button
         key="button"
         layoutId={`popover-${uniqueId}`}
-        className="flex h-9 items-center bg-zinc-900 text-white dark:bg-white dark:text-black px-2 font-semibold"
+        className="flex h-9 items-center bg-neutral-900 text-white dark:bg-white dark:text-black px-2 font-semibold"
         style={{ borderRadius: 8 }}
         onClick={openMenu}
       >
@@ -96,7 +96,7 @@ export default function SignButton() {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 sm:p-6 md:p-8"
           >
             <div
-              className="w-full max-w-[500px] rounded-xl overflow-hidden bg-zinc-200 outline-none dark:bg-zinc-900 dark:text-white text-black shadow-lg"
+              className="w-full max-w-[500px] rounded-xl overflow-hidden bg-neutral-200 outline-none dark:bg-neutral-900 dark:text-white text-black shadow-lg"
               style={{ borderRadius: 12 }}
             >
               <form
@@ -107,7 +107,7 @@ export default function SignButton() {
               >
                 <button
                   onClick={closeMenu}
-                  className="absolute top-2 right-2 text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+                  className="absolute top-2 right-2 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
                   aria-label="Close"
                 >
                   <IoMdClose size={24} />
@@ -116,7 +116,7 @@ export default function SignButton() {
                 <div className="px-2 mt-10 sm:px-6">
                   <div className="mb-4">
                     <textarea
-                      className="w-full h-16 resize-none rounded-md bg-transparent p-2 text-sm outline-none border border-zinc-300 dark:border-zinc-700"
+                      className="w-full h-16 resize-none rounded-md bg-transparent p-2 text-sm outline-none border border-neutral-300 dark:border-neutral-700"
                       placeholder="Your Message"
                       autoFocus
                       onChange={(e) => setMessage(e.target.value)}
@@ -131,7 +131,7 @@ export default function SignButton() {
                       type="email"
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
-                      className="sm:col-span-4 border dark:border-zinc-700"
+                      className="sm:col-span-4 border dark:border-neutral-700"
                     />
                     <Button
                       className="sm:col-span-2"
@@ -152,7 +152,7 @@ export default function SignButton() {
                     type="text"
                     placeholder="Your Name"
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full mb-4 border dark:border-zinc-700"
+                    className="w-full mb-4 border dark:border-neutral-700"
                   />
                   <div className="mb-4">
                     <SignatureCanvas onSave={handleSaveSignature} />

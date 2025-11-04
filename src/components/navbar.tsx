@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="link-container z-50 sticky top-0 w-full flex items-end gap-1 flex-wrap bg-white dark:bg-black py-4">
         <AnimatedBackground
           defaultValue={pathname}
-          className="rounded-md bg-zinc-300 dark:bg-zinc-700"
+          className="rounded-md bg-neutral-300 dark:bg-neutral-700"
           transition={{
             ease: "easeInOut",
             duration: 0.4,
@@ -75,7 +75,7 @@ const Navbar = () => {
               key={href}
               href={href}
               data-id={href}
-              className={`inline-flex items-center justify-center text-center px-2 ${pathname === href ? "text-zinc-800 dark:text-zinc-50" : "text-zinc-500"
+              className={`inline-flex items-center justify-center text-center px-2 ${pathname === href ? "text-neutral-800 dark:text-neutral-50" : "text-neutral-500"
                 }`}
             >
               {linkName}

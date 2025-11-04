@@ -7,7 +7,7 @@ import Books from "./shelpComponents/books";
 import Playlists from "./shelpComponents/playlists";
 import Resources from "./shelpComponents/resources";
 import Journal from "./shelpComponents/journal";
-import Photos from "./shelpComponents/photos";
+import Gallery from "./shelpComponents/gallery";
 import MyGear from "./shelpComponents/myGear";
 
 const ITEMS = [
@@ -15,7 +15,7 @@ const ITEMS = [
   { icon: "🎶", label: "Playlists", component: <Playlists /> },
   { icon: "🖇️", label: "Resources", component: <Resources /> },
   { icon: "✍🏻", label: "Journals", component: <Journal /> },
-  { icon: "📷", label: "Photos", component: <Photos /> },
+  { icon: "📷", label: "Gallery", component: <Gallery /> },
   { icon: "🎒", label: "My Gear", component: <MyGear /> },
 ];
 
@@ -38,8 +38,8 @@ export default function Shelf() {
             onClick={() => setActiveIndex(index)}
             className={`rounded-md px-3 py-1 text-sm font-medium ${ 
               activeIndex === index
-                ? "bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
-                : "bg-zinc-100 text-zinc-600 dark:bg-zinc-700 dark:text-zinc-400"
+                ? "bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100"
+                : "bg-neutral-100 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-400"
             }`}
           >
             <span className="text-xl lg:text-base">{item.icon}</span>{" "}
@@ -59,7 +59,7 @@ export default function Shelf() {
         >
           {ITEMS.map((item, index) => (
             <div key={index} className="py-2">
-              <h1 className="mb-2 font-semibold text-2xl text-zinc-800 dark:text-zinc-100">
+              <h1 className="mb-2 font-semibold text-2xl text-neutral-800 dark:text-neutral-100">
                 {item.label}
               </h1>
               {item.component}
