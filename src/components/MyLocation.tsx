@@ -11,7 +11,7 @@ const MyLocation = () => {
         className="italic underline flex items-center gap-1"
         target="_blank"
       >
-        <span>Junagadh, Gujarat, India</span>
+        <span>Junagadh, India</span>
         <MdOutlineLocationOn className="text-blue-700" />
       </a>
       |<LocationDistance />

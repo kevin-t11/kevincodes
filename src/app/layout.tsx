@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Oxanium } from "next/font/google";
+import { Inter, JetBrains_Mono, Oxanium, Ubuntu_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./provider";
 import Navbar from "@/components/navbar";
@@ -11,9 +11,16 @@ import ProgressProvider from "./ProgressProvider";
 import { Toaster } from "sonner";
 import QueryProvider from "./QueryProvider";
 
-const oxanium = Oxanium({
+// const oxanium = Oxanium({
+//   subsets: ["latin"],
+//   variable: "--font-oxanium ",
+//   display: "swap",
+// });
+
+const ubuntuMono = Ubuntu_Mono({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-oxanium ",
+  variable: "--font-mono ",
   display: "swap",
 });
 
@@ -41,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className={oxanium.className} suppressHydrationWarning>
+      <html lang="en" className={ubuntuMono.className} suppressHydrationWarning>
         <PHProvider>
           <body className="max-w-[712px] mx-auto scroll-smooth w-full px-4 min-h-screen">
             <QueryProvider>

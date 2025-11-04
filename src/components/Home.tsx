@@ -32,13 +32,13 @@ const Homepage = () => {
           </div>
           <div className="desc md:w-full   lg:w-full col-span-2">
             <div className="flex items-center gap-0.5">
-              <h1 className="font-bold text-3xl">
+              <h1 className="font-bold text-3xl font-sans tracking-tight">
                 <span className="text-blue-700">Kevin</span> Thumbar {" "}🎃
               </h1>
             </div>
             <ul className="list-inside">
               <li className="tracking-tight">
-                <span className="font-bold italic">
+                <span className="font-semibold italic tracking-tight">
                   Full Stack Developer & Freelancer
                 </span>
               </li>
@@ -68,7 +68,7 @@ const Homepage = () => {
               with expertise in <span className="font-bold italic text-blue-700">Node.js</span> for backend,{" "}
               all powered by <span className="font-bold italic text-blue-700">TypeScript</span>.
             </li>
-            <li>
+            <li className="text-pink-600 dark:text-pink-400">
               <span className="mr-2">🥺</span>Open to opportunities and
               freelancing gigs.
             </li>
