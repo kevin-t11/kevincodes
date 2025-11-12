@@ -11,7 +11,6 @@ interface Signtypes {
 
 export async function validateEmail(email: string): Promise<boolean> {
   // Step 1: Check if the email already exists in the database
-  (email);
   const existingEmail = await client.guestbookEntry.findFirst({
     where: { email: email },
   });
@@ -32,8 +31,11 @@ export async function validateEmail(email: string): Promise<boolean> {
     const response = await axios.get(apiUrl);
     const emailData = response.data;
 
+    console.log(emailData);
+
     // email validation logic
     const isValid = emailData.format_valid && emailData.score >= 0.3;
+    console.log(isValid);
     return isValid;
   } catch (error) {
     console.error("Error validating email:", error);
