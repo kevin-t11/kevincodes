@@ -87,10 +87,6 @@ const Homepage = () => {
         <MotionDiv variants={childVariants}>
           <h2 className="text-lg mb-2 font-bold">Experience 💼</h2>
           <Experience />
-          <Wigglyline />
-        </MotionDiv>
-        <MotionDiv variants={childVariants}>
-          <SelectedWorks />
         </MotionDiv>
         <Wigglyline />
         <MotionDiv variants={childVariants}>

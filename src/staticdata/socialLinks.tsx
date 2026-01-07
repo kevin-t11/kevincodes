@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { LuGithub, LuInstagram, LuLinkedin, LuTwitter, } from "react-icons/lu";
 import { SiPeerlist } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa6";
 
 type SocialLink = {
     linkName: string,
@@ -12,7 +13,7 @@ const socialLinks: SocialLink[] = [
   {
     linkName: "Twitter",
     linkHref: "https://x.com/kevinnn_tw",
-    linkIcon: <LuTwitter size={28} />,
+    linkIcon: <FaXTwitter  size={28} />,
   },
   {
     linkName: "GitHub",
