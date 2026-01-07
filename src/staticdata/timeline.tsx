@@ -6,7 +6,14 @@ type TimelineItem = {
 
 export const timelineItems: TimelineItem[] = [
   {
-    date: "May 2025 - Present",
+    date: "December 2025 - Present",
+    title: "Software Engineer - Nura Labs (San Francisco, USA (Remote))",
+    description: [
+      "Building the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
+    ]
+  },
+  {
+    date: "May 2025 - October 2025",
     title: "Founding Engineer - Spero Institute (Texas, USA (Remote))",
     description: [
       "Built the entire Spero Institute platform from the ground up — a full-stack mental health care system with scheduling, video conferencing, assessments (PHQ-9, GAD-7, PCL-5), clinical documentation, and real-time chat.",
@@ -15,7 +22,7 @@ export const timelineItems: TimelineItem[] = [
   },
   {
     date: "January 2025 - May 2025",
-    title: "Software Engineer - Strique AI (Mumbai, India)",
+    title: "Software Engineer - Strique AI (Mumbai, India (On-site))",
     description: ["Contributing to the development of AI-driven solutions and enhancing web applications for various clients."]
   },
   {
