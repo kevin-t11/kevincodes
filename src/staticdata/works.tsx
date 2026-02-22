@@ -11,9 +11,9 @@ type Job = {
 export const jobs: Job[] = [
   {
     id: 1,
-    title: "Software Engineer",
+    title: "Founding Engineer",
     company: "Nura Labs",
-    location: "San Francisco, USA (Remote)",
+    location: "SF, USA (Remote)",
     period: "December 2025 - Present",
     link: "https://nura.construction",
     description: [

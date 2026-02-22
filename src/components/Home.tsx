@@ -68,10 +68,10 @@ const Homepage = () => {
               with expertise in <span className="font-bold italic text-blue-700">Node.js</span> for backend,{" "}
               all powered by <span className="font-bold italic text-blue-700">TypeScript</span>.
             </li>
-            <li className="text-pink-600 dark:text-pink-400">
+            {/* <li className="text-pink-600 dark:text-pink-400">
               <span className="mr-2">🥺</span>Open to opportunities and
               freelancing gigs.
-            </li>
+            </li> */}
             <li className="dark:text-slate-400 text-slate-600 italic">&quot; Escape competition through authenticity ✨&quot; {" "} - {" "} <span className="font-bold italic text-blue-700"> <a className="underline" href="https://x.com/naval" target="_blank">Naval</a></span>🤍!</li>
           </ul>
           <Wigglyline />
