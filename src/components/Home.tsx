@@ -32,7 +32,7 @@ const Homepage = () => {
           </div>
           <div className="desc md:w-full   lg:w-full col-span-2">
             <div className="flex items-center gap-0.5">
-              <h1 className="font-bold text-3xl font-sans tracking-tight">
+              <h1 className="font-bold md:text-3xl text-2xl font-sans tracking-tight">
                 <span className="text-blue-700">Kevin</span> Thumbar {" "}🎃
               </h1>
             </div>
@@ -72,7 +72,7 @@ const Homepage = () => {
               <span className="mr-2">🥺</span>Open to opportunities and
               freelancing gigs.
             </li> */}
-            <li className="dark:text-slate-400 text-slate-600 italic">&quot; Escape competition through authenticity ✨&quot; {" "} - {" "} <span className="font-bold italic text-blue-700"> <a className="underline" href="https://x.com/naval" target="_blank">Naval</a></span>🤍!</li>
+            <li className="dark:text-slate-400 text-slate-600 italic">&quot; Escape competition through authenticity ✨&quot; {" "} - {" "} <span className="font-bold italic text-pink-600"> <a className="underline" href="https://x.com/naval" target="_blank">Naval</a></span>🤍!</li>
           </ul>
           <Wigglyline />
         </MotionDiv>
