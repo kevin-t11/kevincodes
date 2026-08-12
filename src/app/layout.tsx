@@ -25,15 +25,15 @@ const ubuntuMono = Ubuntu_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kevincodes.vercel.app"),
+  metadataBase: new URL("https://kevinnn.xyz"),
   title: "Kevin's Portfolio",
   description: "Explore more about Kevin's portfolio",
   openGraph: {
     title: "Kevin's Portfolio",
     description: "Explore more about Kevin's portfolio",
-    url: "https://kevincodes.vercel.app",
+    url: "https://kevinnn.xyz",
     siteName: "Kevin's Portfolio",
-    images: [{ url: "/profile_pic.png", width: 1200, height: 630 }],
+    images: [{ url: "/kevin_signatute.png", width: 1024, height: 384 }],
     type: "article",
   },
 };
