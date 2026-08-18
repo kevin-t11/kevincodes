@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "Explore more about Kevin's portfolio",
     url: "https://kevinnn.xyz",
     siteName: "Kevin's Portfolio",
-    images: [{ url: "/kevin_signatute.svg", width: 1024, height: 384 }],
+    images: [{ url: "/kevin_signatute.png", width: 1024, height: 384 }],
     type: "article",
   },
 };
