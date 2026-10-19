@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdOutlineLocationOn } from "react-icons/md";
-import LocationDistance from './LocationDistance'
 
 const MyLocation = () => {
   return (
@@ -14,7 +13,6 @@ const MyLocation = () => {
         <span>Junagadh, India</span>
         <MdOutlineLocationOn className="text-blue-700" />
       </a>
-      |<LocationDistance />
     </div>
   )
 }
