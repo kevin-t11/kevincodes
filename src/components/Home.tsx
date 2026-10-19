@@ -43,13 +43,6 @@ const Homepage = () => {
                 </span>
               </li>
             </ul>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300">
-              <span aria-hidden="true" className="relative flex size-2 shrink-0">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75 motion-safe:animate-ping dark:bg-blue-400" />
-                <span className="relative inline-flex size-2 rounded-full bg-blue-600 dark:bg-blue-400" />
-              </span>
-              Open to opportunities
-            </div>
           </div>
         </MotionHeader>
 
@@ -79,6 +72,13 @@ const Homepage = () => {
           <Wigglyline />
         </MotionDiv>
         <MotionDiv variants={childVariants} className="mt-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700 dark:border-green-900 dark:bg-green-950/40 dark:text-green-300">
+            <span aria-hidden="true" className="relative flex size-2 shrink-0">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 motion-safe:animate-ping dark:bg-green-400" />
+              <span className="relative inline-flex size-2 rounded-full bg-green-600 dark:bg-green-400" />
+            </span>
+            Open to opportunities
+          </div>
           <Socials />
         </MotionDiv>
         <MotionDiv variants={childVariants}>
