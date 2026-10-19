@@ -21,7 +21,14 @@ export default function Experience() {
                 </span>
               </h3>
               <p className="mb-2 font-semibold">
-                <a href={job.link} target="_blank" className="hover:underline">{job.company}</a> <span className="text-blue-400"> | </span>{" "}
+                <a
+                  href={job.link}
+                  target="_blank"
+                  className="text-blue-700 underline underline-offset-4 dark:text-blue-400"
+                >
+                  {job.company}
+                </a>{" "}
+                <span className="text-blue-400"> | </span>{" "}
                 {job.period}
               </p>
               <ul className="list-disc list-inside space-y-1 ">

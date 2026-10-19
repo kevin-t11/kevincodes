@@ -26,20 +26,7 @@ import {
 import { shelfPlaylists } from "@/staticdata/shelf";
 import { AudioEqualizer } from "@/components/audio-equalizer";
 import { cn } from "@/lib/utils";
-type NowPlayingResponse = {
-  isPlaying: boolean;
-  track?: {
-    title: string;
-    artist: string;
-    album: string;
-    albumImageUrl?: string | null;
-    songUrl: string;
-    durationMs: number;
-    progressMs: number;
-  };
-  lastUpdated: string;
-  error?: string;
-};
+import type { NowPlayingResponse } from "@/lib/spotify-types";
 
 const fetchNowPlaying = async (): Promise<NowPlayingResponse> => {
   const response = await fetch("/api/spotify/now-playing", {
@@ -80,9 +67,11 @@ export default function Playlists() {
 
   const track = data?.track;
   const isPlaying = Boolean(data?.isPlaying && track);
+  const isLastPlayed = data?.source === "recently-played";
   const lastUpdatedDate = data?.lastUpdated ? new Date(data.lastUpdated) : null;
-  const lastUpdatedRelative = lastUpdatedDate
-    ? formatDistanceToNow(lastUpdatedDate, { addSuffix: true })
+  const playedAtDate = data?.playedAt ? new Date(data.playedAt) : null;
+  const lastPlayedRelative = playedAtDate && !Number.isNaN(playedAtDate.getTime())
+    ? formatDistanceToNow(playedAtDate, { addSuffix: true })
     : null;
 
   const playbackState = (() => {
@@ -108,12 +97,19 @@ export default function Playlists() {
         helper: "Streaming live from Spotify",
       };
     }
+    if (isLastPlayed) {
+      return {
+        tone: "paused" as const,
+        label: "Last played",
+        helper: lastPlayedRelative
+          ? `Played ${lastPlayedRelative}`
+          : "The most recent song I listened to",
+      };
+    }
     return {
       tone: "paused" as const,
       label: "Paused on Spotify",
-      helper: lastUpdatedRelative
-        ? `Last heard ${lastUpdatedRelative}`
-        : "Playback paused",
+      helper: "Playback paused",
     };
   })();
 
@@ -159,11 +155,11 @@ export default function Playlists() {
     if (!track.durationMs) return 0;
     return Math.min(
       100,
-      Math.round((track.progressMs / track.durationMs) * 100)
+      Math.round(((track.progressMs ?? 0) / track.durationMs) * 100)
     );
   }, [track]);
 
-  const formatDuration = (ms: number) => {
+  const formatDuration = (ms: number | null) => {
     if (!ms) return "0:00";
     const totalSeconds = Math.floor(ms / 1000);
     const minutes = Math.floor(totalSeconds / 60);
@@ -327,36 +323,43 @@ export default function Playlists() {
                 )}
               </div>
 
-              <div className="space-y-2">
-                <div
-                  className={cn(
-                    "h-2 rounded-full bg-neutral-200",
-                    "dark:bg-neutral-800"
-                  )}
-                >
+              {isLastPlayed && track ? (
+                <p className="flex items-center gap-1 text-xs font-medium text-neutral-600 dark:text-neutral-400">
+                  <FiClock className="text-sm" aria-hidden />
+                  Duration {formatDuration(track.durationMs)}
+                </p>
+              ) : (
+                <div className="space-y-2">
                   <div
                     className={cn(
-                      "h-full rounded-full transition-all duration-300",
-                      tone.progress
+                      "h-2 rounded-full bg-neutral-200",
+                      "dark:bg-neutral-800"
                     )}
-                    style={{ width: `${progressPercent}%` }}
-                  />
+                  >
+                    <div
+                      className={cn(
+                        "h-full rounded-full transition-all duration-300",
+                        tone.progress
+                      )}
+                      style={{ width: `${progressPercent}%` }}
+                    />
+                  </div>
+                  <div
+                    className={cn(
+                      "flex items-center justify-between text-xs font-medium text-neutral-600",
+                      "dark:text-neutral-400"
+                    )}
+                  >
+                    <span className="flex items-center gap-1">
+                      <FiClock className="text-sm" aria-hidden />
+                      {track ? formatDuration(track.progressMs) : "0:00"}
+                    </span>
+                    <span>
+                      {track ? formatDuration(track.durationMs) : "0:00"}
+                    </span>
+                  </div>
                 </div>
-                <div
-                  className={cn(
-                    "flex items-center justify-between text-xs font-medium text-neutral-600",
-                    "dark:text-neutral-400"
-                  )}
-                >
-                  <span className="flex items-center gap-1">
-                    <FiClock className="text-sm" aria-hidden />
-                    {track ? formatDuration(track.progressMs) : "0:00"}
-                  </span>
-                  <span>
-                    {track ? formatDuration(track.durationMs) : "0:00"}
-                  </span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </CardContent>

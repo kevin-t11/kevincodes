@@ -1,188 +1,162 @@
 import { NextResponse } from "next/server";
+import type { NowPlayingResponse } from "@/lib/spotify-types";
 
 const SPOTIFY_TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const SPOTIFY_NOW_PLAYING_ENDPOINT =
   "https://api.spotify.com/v1/me/player/currently-playing";
+const SPOTIFY_RECENTLY_PLAYED_ENDPOINT =
+  "https://api.spotify.com/v1/me/player/recently-played?limit=1";
 
-type SpotifyTokenResponse = {
-  access_token: string;
-  token_type: "Bearer";
-  expires_in: number;
-  scope: string;
+type SpotifyTrack = {
+  name: string;
+  artists?: { name: string }[];
+  album?: { name: string; images?: { url: string }[] };
+  external_urls?: { spotify?: string };
+  duration_ms: number;
 };
 
 const clientId = process.env.SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
 
-const credentialsMissing = !clientId || !clientSecret || !refreshToken;
+function playbackResponse(
+  payload: Omit<NowPlayingResponse, "lastUpdated">,
+  status = 200
+) {
+  return NextResponse.json(
+    { ...payload, lastUpdated: new Date().toISOString() },
+    { status, headers: { "Cache-Control": "no-store" } }
+  );
+}
 
-async function getAccessToken(): Promise<string | null> {
-  if (credentialsMissing) {
-    return null;
-  }
+function formatTrack(
+  track: SpotifyTrack,
+  progressMs: number | null
+): NonNullable<NowPlayingResponse["track"]> {
+  return {
+    title: track.name,
+    artist: (track.artists ?? []).map((artist) => artist.name).join(", "),
+    album: track.album?.name ?? "",
+    albumImageUrl: track.album?.images?.[0]?.url ?? null,
+    songUrl: track.external_urls?.spotify ?? "",
+    durationMs: track.duration_ms,
+    progressMs,
+  };
+}
 
-  const basic = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
-
-  const response = await fetch(SPOTIFY_TOKEN_ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `Basic ${basic}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      grant_type: "refresh_token",
-      refresh_token: refreshToken,
-    }).toString(),
+async function getLastPlayed(accessToken: string) {
+  const response = await fetch(SPOTIFY_RECENTLY_PLAYED_ENDPOINT, {
+    headers: { Authorization: `Bearer ${accessToken}` },
     cache: "no-store",
   });
 
   if (!response.ok) {
-    console.error("Spotify token refresh failed", await response.text());
-    return null;
+    console.error("Spotify listening history failed", response.status);
+    return playbackResponse(
+      { isPlaying: false, error: "Unable to load the last played song." },
+      response.status
+    );
   }
 
-  const tokenResponse = (await response.json()) as SpotifyTokenResponse;
-  return tokenResponse.access_token;
+  const recentlyPlayed = (await response.json()) as {
+    items?: { track: SpotifyTrack; played_at: string }[];
+  };
+  const lastPlayed = recentlyPlayed.items?.[0];
+
+  if (!lastPlayed?.track) {
+    return playbackResponse({ isPlaying: false });
+  }
+
+  return playbackResponse({
+    isPlaying: false,
+    source: "recently-played",
+    playedAt: lastPlayed.played_at,
+    track: formatTrack(lastPlayed.track, null),
+  });
 }
 
 export async function GET() {
-  if (credentialsMissing) {
-    return NextResponse.json(
+  if (!clientId || !clientSecret || !refreshToken) {
+    return playbackResponse(
       {
         isPlaying: false,
         error:
           "Missing Spotify credentials. Set SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REFRESH_TOKEN.",
-        lastUpdated: new Date().toISOString(),
       },
-      {
-        status: 503,
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      }
+      503
     );
   }
 
   try {
-    const accessToken = await getAccessToken();
-
-    if (!accessToken) {
-      return NextResponse.json(
-        {
-          isPlaying: false,
-          error: "Unable to authenticate with Spotify.",
-          lastUpdated: new Date().toISOString(),
-        },
-        {
-          status: 502,
-          headers: {
-            "Cache-Control": "no-store",
-          },
-        }
-      );
-    }
-
-    const nowPlayingResponse = await fetch(SPOTIFY_NOW_PLAYING_ENDPOINT, {
+    const tokenResponse = await fetch(SPOTIFY_TOKEN_ENDPOINT, {
+      method: "POST",
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
+        "Content-Type": "application/x-www-form-urlencoded",
       },
+      body: new URLSearchParams({
+        grant_type: "refresh_token",
+        refresh_token: refreshToken,
+      }).toString(),
       cache: "no-store",
     });
 
-    if (nowPlayingResponse.status === 204 || nowPlayingResponse.status === 200) {
-      if (nowPlayingResponse.status === 204) {
-        return NextResponse.json(
-          {
-            isPlaying: false,
-            lastUpdated: new Date().toISOString(),
-          },
-          {
-            status: 200,
-            headers: {
-              "Cache-Control": "no-store",
-            },
-          }
-        );
-      }
-
-      const nowPlaying = await nowPlayingResponse.json();
-
-      if (!nowPlaying?.item) {
-        return NextResponse.json(
-          {
-            isPlaying: false,
-            lastUpdated: new Date().toISOString(),
-          },
-          {
-            status: 200,
-            headers: {
-              "Cache-Control": "no-store",
-            },
-          }
-        );
-      }
-
-      const track = {
-        title: nowPlaying.item.name as string,
-        artist: (nowPlaying.item.artists ?? [])
-          .map((artist: { name: string }) => artist.name)
-          .join(", "),
-        album: nowPlaying.item.album?.name as string,
-        albumImageUrl:
-          nowPlaying.item.album?.images?.[0]?.url ??
-          nowPlaying.item.album?.images?.[1]?.url ??
-          null,
-        songUrl: nowPlaying.item.external_urls?.spotify as string,
-        durationMs: nowPlaying.item.duration_ms as number,
-        progressMs: nowPlaying.progress_ms as number,
-      };
-
-      return NextResponse.json(
-        {
-          isPlaying: Boolean(nowPlaying.is_playing),
-          track,
-          lastUpdated: new Date().toISOString(),
-        },
-        {
-          status: 200,
-          headers: {
-            "Cache-Control": "no-store",
-          },
-        }
+    if (!tokenResponse.ok) {
+      console.error("Spotify token refresh failed", tokenResponse.status);
+      return playbackResponse(
+        { isPlaying: false, error: "Unable to authenticate with Spotify." },
+        502
       );
     }
 
-    return NextResponse.json(
-      {
-        isPlaying: false,
-        error: `Spotify returned status ${nowPlayingResponse.status}`,
-        lastUpdated: new Date().toISOString(),
-      },
-      {
-        status: nowPlayingResponse.status,
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      }
-    );
+    const { access_token: accessToken } = (await tokenResponse.json()) as {
+      access_token: string;
+    };
+    if (!accessToken) {
+      return playbackResponse(
+        { isPlaying: false, error: "Unable to authenticate with Spotify." },
+        502
+      );
+    }
+
+    const response = await fetch(SPOTIFY_NOW_PLAYING_ENDPOINT, {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      cache: "no-store",
+    });
+
+    if (response.status === 204) {
+      return await getLastPlayed(accessToken);
+    }
+
+    if (!response.ok) {
+      return playbackResponse(
+        { isPlaying: false, error: `Spotify returned status ${response.status}` },
+        response.status
+      );
+    }
+
+    const nowPlaying = (await response.json()) as {
+      item?: SpotifyTrack | null;
+      is_playing: boolean;
+      progress_ms: number | null;
+    };
+
+    if (!nowPlaying.item) {
+      return await getLastPlayed(accessToken);
+    }
+
+    return playbackResponse({
+      isPlaying: Boolean(nowPlaying.is_playing),
+      source: "currently-playing",
+      track: formatTrack(nowPlaying.item, nowPlaying.progress_ms),
+    });
   } catch (error) {
     console.error("Spotify now playing error", error);
-    return NextResponse.json(
-      {
-        isPlaying: false,
-        error: "Unexpected error fetching Spotify playback.",
-        lastUpdated: new Date().toISOString(),
-      },
-      {
-        status: 500,
-        headers: {
-          "Cache-Control": "no-store",
-        },
-      }
+    return playbackResponse(
+      { isPlaying: false, error: "Unexpected error fetching Spotify playback." },
+      500
     );
   }
 }
 
 export const dynamic = "force-dynamic";
-

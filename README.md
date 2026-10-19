@@ -20,6 +20,30 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Reconnect Spotify
+
+The shelf widget uses `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, and
+`SPOTIFY_REFRESH_TOKEN` from `.env.local` (or the deployment environment).
+If Spotify returns `invalid_grant`, the refresh token has expired or been revoked
+and the account must authorize the app again.
+
+1. Open your app in the [Spotify developer dashboard](https://developer.spotify.com/dashboard).
+2. Add `http://127.0.0.1:4382/callback` to its Redirect URIs and save.
+3. Run `npm run spotify:reconnect` and open the printed link in your signed-in browser.
+4. Authorize current playback and recently played access. The command saves the new refresh token in the
+   gitignored `.env.local` without printing it. Restart the local server.
+5. For the live site, update `SPOTIFY_REFRESH_TOKEN` in the Vercel project's
+   environment variables and redeploy. Updating an environment variable alone
+   does not change an existing deployment.
+
+Spotify's [refresh-token documentation](https://developer.spotify.com/documentation/web-api/tutorials/refreshing-tokens)
+describes the six-month token lifetime and reauthorization requirement.
+
+When Spotify has no active track, the shelf shows the latest song from listening
+history with a "Last played" label and its actual playback timestamp. Both
+`user-read-currently-playing` and `user-read-recently-played` permissions are
+required; reconnect once if your token predates the listening-history permission.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
