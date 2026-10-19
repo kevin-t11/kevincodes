@@ -5,7 +5,7 @@ const MyWritings = () => {
       <p className="leading-5">
         Apologies, my dear lads, I haven&apos;t graced any great writings yet,
         though I do bless{" "}
-        <a href="https://x.com/kevinnn_tw" className="text-blue-700 underline">
+        <a href="https://x.com/kevinnn_tw" className="text-blue-700 dark:text-blue-400 underline">
           Twitter
         </a>{" "}
         with my daily (and highly intellectual) shitposts at best.

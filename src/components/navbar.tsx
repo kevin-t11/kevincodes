@@ -53,7 +53,7 @@ const Navbar = () => {
             <a
               href="https://x.com/kevinnn_tw"
               target="_blank"
-              className="text-blue-600 underline"
+              className="text-blue-700 dark:text-blue-400 underline"
             >
               Hire Me
             </a>

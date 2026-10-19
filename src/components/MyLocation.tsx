@@ -11,7 +11,7 @@ const MyLocation = () => {
         target="_blank"
       >
         <span>Junagadh, India</span>
-        <MdOutlineLocationOn className="text-blue-700" />
+        <MdOutlineLocationOn className="text-blue-700 dark:text-blue-400" />
       </a>
     </div>
   )

@@ -33,13 +33,13 @@ const Homepage = () => {
           <div className="desc md:w-full   lg:w-full col-span-2">
             <div className="flex items-center gap-0.5">
               <h1 className="font-bold md:text-3xl text-2xl font-sans tracking-tight">
-                <span className="text-blue-700">Kevin</span> Thumbar {" "}🎃
+                <span className="text-blue-700 dark:text-blue-400">Kevin</span> Thumbar {" "}🎃
               </h1>
             </div>
             <ul className="list-inside">
               <li className="tracking-tight">
                 <span className="font-semibold italic tracking-tight">
-                  Designer & Indie Hacker
+                  Developer & Indie Hacker
                 </span>
               </li>
             </ul>
@@ -54,18 +54,19 @@ const Homepage = () => {
             </li>
             <li>
               <span className="mr-2">🌍</span>Got a background in{" "}
-              <span className="font-bold italic text-blue-700">Computer Science </span>{" "}
+              <span className="font-bold italic text-blue-700 dark:text-blue-400">Computer Science </span>{" "}
               and{" "}
-              <span className="font-bold italic text-blue-700">
+              <span className="font-bold italic text-blue-700 dark:text-blue-400">
                 Mathematics
               </span>
               .
             </li>
             <li>
-              <span className="mr-2">⚛️</span>I&apos;m a designer and indie hacker specializing in{" "}
-              <span className="font-bold italic text-blue-700 dark:text-blue-400">reverse engineering</span>,
-              building <span className="font-bold italic text-blue-700 dark:text-blue-400">AI agents</span>,
-              and orchestrating <span className="font-bold italic text-blue-700 dark:text-blue-400">frontier models</span>.
+              <span className="mr-2">⚛️</span>I&apos;m a developer and indie hacker building{" "}
+              <span className="font-bold italic text-blue-700 dark:text-blue-400">AI agents</span>,{" "}
+              <span className="font-bold italic text-blue-700 dark:text-blue-400">reverse engineering</span> systems,
+              and orchestrating <span className="font-bold italic text-blue-700 dark:text-blue-400">frontier models</span>,
+              with a strong eye for design and motion.
             </li>
             <li className="dark:text-slate-400 text-slate-600 italic">&quot; Escape competition through authenticity ✨&quot; {" "} - {" "} <span className="font-bold italic text-pink-600"> <a className="underline" href="https://x.com/naval" target="_blank">Naval</a></span>🤍!</li>
           </ul>
@@ -103,14 +104,14 @@ const Homepage = () => {
           <a
             href="https://x.com/kevinnn_tw"
             target="_blank"
-            className="underline text-blue-700"
+            className="underline text-blue-700 dark:text-blue-400"
           >
             Twitter
           </a>{" "}
           or drop me an{" "}
           <a
             href="mailto:kevthummar178@gmail.com"
-            className="underline text-blue-700"
+            className="underline text-blue-700 dark:text-blue-400"
           >
             email
           </a>
