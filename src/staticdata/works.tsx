@@ -14,10 +14,10 @@ export const jobs: Job[] = [
     title: "Founding Engineer",
     company: "Nura Labs",
     location: "SF, USA (Remote)",
-    period: "December 2025 - Present",
+    period: "December 2025 - July 2026",
     link: "https://nura.construction",
     description: [
-      "Building the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
+      "Built the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
     ],
   },
   {

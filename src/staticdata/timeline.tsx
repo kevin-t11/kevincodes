@@ -6,10 +6,10 @@ type TimelineItem = {
 
 export const timelineItems: TimelineItem[] = [
   {
-    date: "December 2025 - Present",
+    date: "December 2025 - July 2026",
     title: "Software Engineer - Nura Labs (San Francisco, USA (Remote))",
     description: [
-      "Building the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
+      "Built the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
     ]
   },
   {

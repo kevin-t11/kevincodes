@@ -39,10 +39,17 @@ const Homepage = () => {
             <ul className="list-inside">
               <li className="tracking-tight">
                 <span className="font-semibold italic tracking-tight">
-                  Full Stack Developer & Freelancer
+                  Designer & Indie Hacker
                 </span>
               </li>
             </ul>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300">
+              <span aria-hidden="true" className="relative flex size-2 shrink-0">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75 motion-safe:animate-ping dark:bg-blue-400" />
+                <span className="relative inline-flex size-2 rounded-full bg-blue-600 dark:bg-blue-400" />
+              </span>
+              Open to opportunities
+            </div>
           </div>
         </MotionHeader>
 
@@ -62,16 +69,11 @@ const Homepage = () => {
               .
             </li>
             <li>
-              <span className="mr-2">⚛️</span>As a Full-stack developer specializing in{" "}
-              <span className="font-bold italic text-blue-700">React</span> and{" "}
-              <span className="font-bold italic text-blue-700">Next.js</span> for frontend,{" "}
-              with expertise in <span className="font-bold italic text-blue-700">Node.js</span> for backend,{" "}
-              all powered by <span className="font-bold italic text-blue-700">TypeScript</span>.
+              <span className="mr-2">⚛️</span>I&apos;m a designer and indie hacker specializing in{" "}
+              <span className="font-bold italic text-blue-700 dark:text-blue-400">reverse engineering</span>,
+              building <span className="font-bold italic text-blue-700 dark:text-blue-400">AI agents</span>,
+              and orchestrating <span className="font-bold italic text-blue-700 dark:text-blue-400">frontier models</span>.
             </li>
-            {/* <li className="text-pink-600 dark:text-pink-400">
-              <span className="mr-2">🥺</span>Open to opportunities and
-              freelancing gigs.
-            </li> */}
             <li className="dark:text-slate-400 text-slate-600 italic">&quot; Escape competition through authenticity ✨&quot; {" "} - {" "} <span className="font-bold italic text-pink-600"> <a className="underline" href="https://x.com/naval" target="_blank">Naval</a></span>🤍!</li>
           </ul>
           <Wigglyline />
