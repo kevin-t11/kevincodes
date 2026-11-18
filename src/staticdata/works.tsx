@@ -5,6 +5,7 @@ type Job = {
   location: string
   period: string
   link: string
+  extraLinks?: { label: string; href: string }[]
   description: string[]
 }
 
@@ -15,7 +16,8 @@ export const jobs: Job[] = [
     company: "Nura Labs",
     location: "SF, USA (Remote)",
     period: "December 2025 - July 2026",
-    link: "https://nura.construction",
+    link: "https://nuracompute.com",
+    extraLinks: [{ label: "Landryx", href: "https://landryx.com" }],
     description: [
       "Built the intelligence layer for real estate by designing and implementing specialized AI models focused on streamlining real estate development decisions, predictive analytics, and process automation."
     ],

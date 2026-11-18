@@ -21,7 +21,20 @@ export default function Experience() {
                   className="text-blue-700 underline underline-offset-4 dark:text-blue-400"
                 >
                   {job.company}
-                </a>{" "}
+                </a>
+                {job.extraLinks?.map((extra) => (
+                  <React.Fragment key={extra.href}>
+                    {" "}
+                    <span className="text-blue-400"> | </span>{" "}
+                    <a
+                      href={extra.href}
+                      target="_blank"
+                      className="text-blue-700 underline underline-offset-4 dark:text-blue-400"
+                    >
+                      {extra.label}
+                    </a>
+                  </React.Fragment>
+                ))}{" "}
                 <span className="text-blue-400"> | </span>{" "}
                 {job.period}
               </p>
